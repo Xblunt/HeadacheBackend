@@ -2,17 +2,11 @@ package ru.headache.backend.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.headache.backend.api.dto.CooperationRequestDto;
 import ru.headache.backend.api.dto.PromotionRequestDto;
-import ru.headache.backend.api.mapper.CooperationRequestMapper;
 import ru.headache.backend.api.mapper.PromotionRequestMapper;
 import ru.headache.backend.store.entities.PromotionRequest;
-import ru.headache.backend.store.entities.PromotionStatus;
-import ru.headache.backend.store.entities.СooperationRequest;
-import ru.headache.backend.store.repositories.CooperationRequestRepository;
 import ru.headache.backend.store.repositories.PromotionRequestRepository;
 import ru.headache.backend.store.repositories.SongRepository;
-import ru.headache.backend.store.repositories.UserRepository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -43,8 +37,6 @@ public class PromotionRequestService {
             entity.setSong(songRepository.findById(dto.getSongUUID()).orElse(null));
         if (Objects.isNull(dto.getDispatchTime()))
             entity.setDispatchTime(LocalDate.now());
-        if (dto.getStatus() != null && dto.getStatus().equals(PromotionStatus.PROCESSING))
-            entity.setConfirmationTime(LocalDate.now());
         return mapper.toDTO(repository.save(mapper.toEntity(dto)));
     }
 

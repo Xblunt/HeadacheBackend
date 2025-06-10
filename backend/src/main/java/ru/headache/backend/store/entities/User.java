@@ -8,9 +8,7 @@ import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Collection;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Setter
@@ -82,4 +80,7 @@ public class User implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "song_uuid")
     )
     private List<Song> savedSongs;
+
+    @ManyToMany
+    private Set<Room> rooms = new HashSet<>();
 }

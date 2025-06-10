@@ -11,4 +11,5 @@ import java.util.Optional;
 public interface PromotionRequestRepository extends JpaRepository<PromotionRequest,String> {
     List<PromotionRequest> findAll();
     Optional<PromotionRequest> findByUuid(String uuid);
+    List<PromotionRequest> findByStatus(PromotionRequest.Status status);
 }

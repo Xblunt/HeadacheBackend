@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -50,4 +51,14 @@ public class Song implements Serializable {
     @OneToOne
     @JoinColumn(name = "file_uuid", referencedColumnName = "uuid")
     private File file;
+
+    @Column(name = "play_count_last_week")
+    private int playCountLastWeek;
+
+    @Column(name = "created_at")
+    private LocalDateTime createdAt = LocalDateTime.now();
+    @Column(name = "featured")
+    private boolean featured;
+    @Column(name = "promoted_until")
+    private LocalDateTime promotedUntil;
 }

@@ -18,6 +18,8 @@ import java.util.UUID;
 @Table(name = "promotion_request")
 public class PromotionRequest implements Serializable {
 
+    public enum Status { PENDING, APPROVED, REJECTED }
+
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "uuid")
@@ -40,5 +42,5 @@ public class PromotionRequest implements Serializable {
 
     @Column(name = "status")
     @Enumerated(EnumType.ORDINAL)
-    private PromotionStatus status;
+    private Status status = Status.PENDING;
 }

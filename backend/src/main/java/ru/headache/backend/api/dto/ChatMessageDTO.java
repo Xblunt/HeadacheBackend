@@ -1,8 +1,7 @@
 package ru.headache.backend.api.dto;
-
 import lombok.*;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -11,11 +10,10 @@ import java.time.LocalDate;
 @ToString
 @EqualsAndHashCode
 @Builder
-public class PromotionRequestDto {
+public class ChatMessageDTO {
     private String uuid;
-    private String songUUID;
-    private String msg;
-    private LocalDate dispatchTime;
-    private LocalDate confirmationTime;
-    private String status;
+    private String sender;
+    private String content;
+    private LocalDateTime timestamp;
+    private String roomId;
 }

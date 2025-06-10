@@ -12,4 +12,6 @@ public interface SongRepository extends JpaRepository<Song,String> {
     List<Song> findAll();
     Optional<Song> findByUuid(String uuid);
     List<Song> findAllByUuidIn(List<String> uuids);
+    List<Song> findByPlayCountLastWeekLessThan(int playCount);
+    List<Song> findByPlayCountLastWeekGreaterThan(int playCount);
 }
